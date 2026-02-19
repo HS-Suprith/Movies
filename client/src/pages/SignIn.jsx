@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { API_BASE_URL } from '../config';
 import './SignIn.css';
 
-const API = '/api/auth';
+const API = `${API_BASE_URL}/auth`;
 
 export default function SignIn() {
   const navigate = useNavigate();

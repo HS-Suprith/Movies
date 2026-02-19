@@ -8,12 +8,23 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const { Pool } = pg;
 
 // For Vercel, CA cert comes as environment variable string, not file
+// Vercel env vars may strip newlines - restore them from \n literals
 let sslConfig = { rejectUnauthorized: true };
-if (process.env.DATABASE_CA_CERT) {
-  // Vercel: CA cert as environment variable string
+
+// Check DISABLE_SSL_VERIFY first - skip all cert verification
+if (process.env.DISABLE_SSL_VERIFY === 'true') {
+  sslConfig = {
+    rejectUnauthorized: false,
+    checkServerIdentity: () => undefined,
+  };
+} else if (process.env.DATABASE_CA_CERT) {
+  let cert = process.env.DATABASE_CA_CERT;
+  if (!cert.includes('\n') && cert.includes('\\n')) {
+    cert = cert.replace(/\\n/g, '\n');
+  }
   sslConfig = {
     rejectUnauthorized: true,
-    ca: process.env.DATABASE_CA_CERT,
+    ca: cert,
   };
 } else if (process.env.DATABASE_CA_PATH) {
   // Local development: CA cert as file path

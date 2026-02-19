@@ -1,0 +1,144 @@
+.signin-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.signin-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url('https://assets.nflxext.com/ffe/siteui/vlv3/6c884f48-f7d8-4a59-9d25-b7c138813aee/590e8f6a-30ce-4e45-9b58-78a33c3c50e6/US-en-20240817-popsignuptwoweeks-perspective_alpha_website_large.jpg')
+      center/cover no-repeat;
+  z-index: 0;
+}
+
+.signin-header {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 3%;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--netflix-red);
+}
+
+.signin-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+  padding: 3.5rem;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.signin-card h1 {
+  margin: 0 0 1.75rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.signin-error {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: #e87c03;
+  color: #000;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.signin-success {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: #2e7d32;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.signin-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.signin-card input {
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  background: #333;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.signin-card input::placeholder {
+  color: #8c8c8c;
+}
+
+.signin-card input:focus {
+  outline: none;
+  background: #454545;
+}
+
+.signin-card button[type='submit'] {
+  padding: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--netflix-red);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.signin-card button[type='submit']:hover:not(:disabled) {
+  background: var(--netflix-red-hover);
+}
+
+.signin-card button[type='submit']:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.signin-toggle {
+  margin: 1.5rem 0 0;
+  color: #b3b3b3;
+  font-size: 0.95rem;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  text-decoration: underline;
+  padding: 0;
+  font-size: inherit;
+}
+
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+.signin-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding: 1.5rem;
+  text-align: center;
+  color: #8c8c8c;
+  font-size: 0.9rem;
+}
